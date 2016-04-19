@@ -17,6 +17,16 @@ group :development, :test do
   gem 'spring'
   gem 'pry'
 end
+
+group :test do
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem 'capybara'
+  gem "launchy"
+  gem "database_cleaner"
+  gem "faker"
+end
+
 gem 'thin'
 gem 'websocket-rails'
 
