@@ -1,0 +1,24 @@
+#compass {
+  width: 380px;
+  height: 380px;
+  background-image:url('http://i.imgur.com/44nyA.jpg');
+  position: relative;
+}
+#arrow {
+  width: 17px;
+  height: 16px;
+  background-color:#F00;
+  position: absolute;
+  top: 180px;
+  left: 48px;
+  border-radius: 51px;
+}
+.css-compass {
+  float: left;
+}
+.table2 {
+  /*width: 26%;*/
+}
+#table2 {
+  margin-top: 2%;
+}
