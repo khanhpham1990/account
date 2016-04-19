@@ -1,7 +1,11 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describle "Category" do
-  it "is valid with a name"
+describe "Category" do
+  it "is valid with a name" do
+    category = Category.new(name: "phamkhanh")
+    expect(category).to be_valid
+  end
+
   it "is invalid without a name"
 end
 
