@@ -1,8 +1,13 @@
 <div class="row">
+  <%= link_to "Create", new_home_path %>
   <div id="mount-point">
+    <% @categories.each do |item| %>
+      <%= item.id %>-<%= item.name %><br>
+    <% end %>
   </div>
 </div>
 
 <% content_for :title do %>
   <title>Home Page</title>
 <% end %>
+

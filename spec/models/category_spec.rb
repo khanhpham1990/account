@@ -6,6 +6,10 @@ describe "Category" do
     expect(category).to be_valid
   end
 
-  it "is invalid without a name"
+  it "is invalid without a name" do
+    category = Category.new(name: nil)
+    category.valid?
+    expect(category.errors[:name]).to include("can't be blank")
+  end
 end
 
