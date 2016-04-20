@@ -1,3 +1,18 @@
+GIT
+  remote: git://github.com/capistrano/passenger.git
+  revision: 223bf12f06c79febabba61ef24eb3752ee8e8f5c
+  specs:
+    capistrano-passenger (0.2.0)
+      capistrano (~> 3.0)
+
+GIT
+  remote: git://github.com/capistrano/rbenv.git
+  revision: e056efc0c361cc15b76ff961d6c5f65ed5e2c57e
+  specs:
+    capistrano-rbenv (2.0.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,6 +56,7 @@ GEM
     autoprefixer-rails (6.1.0.1)
       execjs
       json
+    bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.5.1)
@@ -48,6 +64,16 @@ GEM
       sass (>= 3.3.0)
     builder (3.2.2)
     byebug (7.0.0)
+    capistrano (3.4.1)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-rails (1.1.6)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
     capybara (2.7.0)
       addressable
       mime-types (>= 1.16)
@@ -66,6 +92,12 @@ GEM
     daemons (1.2.3)
     database_cleaner (1.5.2)
     debug_inspector (0.0.2)
+    devise (4.0.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     em-synchrony (1.0.4)
       eventmachine (>= 1.0.0.beta.1)
@@ -105,9 +137,13 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.2)
     multi_json (1.11.2)
-    mysql2 (0.3.18)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.1.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    orm_adapter (0.5.0)
+    pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -145,6 +181,8 @@ GEM
     redis (3.2.2)
     redis-objects (1.2.1)
       redis (>= 3.0.2)
+    responders (2.1.2)
+      railties (>= 4.2.0, < 5.1)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -180,6 +218,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sshkit (1.9.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     thin (1.6.4)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -194,6 +235,8 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.6)
+      rack (>= 1.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -220,16 +263,22 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   byebug
+  capistrano
+  capistrano-bundler (~> 1.1.2)
+  capistrano-passenger!
+  capistrano-rails (~> 1.1.1)
+  capistrano-rbenv!
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
+  devise
   factory_girl_rails
   faker
   jbuilder (~> 2.0)
   jquery-rails
   json
   launchy
-  mysql2 (= 0.3.18)
+  pg (~> 0.15)
   pry
   rails (= 4.2.4)
   rspec-rails

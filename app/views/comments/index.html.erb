@@ -1,2 +1,42 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<div id="comment"></div>
+<div class="row">
+  <%= link_to "Create", new_comment_path %>
+  <ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= comment.id %>-<%= comment.name %><%= link_to "Edit", edit_comment_path(comment.id) %>
+    </li>
+  <% end %>
+  </ul>
+</div>
+
+<script type="text/babel" charset="utf-8">
+  var Liquid = React.createClass({
+    getInitialState: function() {
+      return {
+        currentTemp: 60
+      };
+    },
+    render: function() {
+      var stateOfMatter;
+      if(this.state.currentTemp <= 32) {
+        stateOfMatter = "solid";
+      } else if(this.state.currentTemp >= 212) {
+        stateOfMatter = 'Gas';
+      } else {
+        stateOfMatter = "Liquid";
+      }
+      return (
+        <div>{this.state.currentTemp} and water is considered to be a {stateOfMatter}</div>
+      );
+    }
+  });
+
+  var water = {
+    name: "Water",
+    freezing: 32,
+    boiling: 212
+  };
+
+  ReactDOM.render(<Liquid />, document.getElementById("comment"));
+</script>

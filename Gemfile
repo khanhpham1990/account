@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'rails', '4.2.4'
-gem 'mysql2', '0.3.18'
+# gem 'mysql2', '0.3.18'
+gem 'pg', '~> 0.15'
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -16,6 +17,12 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'pry'
+
+  gem 'capistrano'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-rbenv', github: "capistrano/rbenv"
+  gem 'capistrano-passenger', require: false, github: 'capistrano/passenger'
 end
 
 group :test do
@@ -29,4 +36,4 @@ end
 
 gem 'thin'
 gem 'websocket-rails'
-
+gem 'devise'

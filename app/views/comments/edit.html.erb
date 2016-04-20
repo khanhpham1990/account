@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-12">
-    <%= form_for @comment, url: comments_path, html: {class: ""} do |f| %>
+    <%= form_for @comment, url: comment_path(@comment.id), html: {class: ""} do |f| %>
       <%= f.text_field :name, class: "form-control" %>
       <%= f.text_field :email, class: "form-control" %>
       <%= f.submit "Submit" %>
